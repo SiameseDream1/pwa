@@ -1,7 +1,7 @@
 {
   "short_name": "Ginkobus",
   "name": "Ginkobus",
-  "description": "Whatever",
+  "description": "",
   "icons": [
     {
       "src": "icons/icon-192.png",
@@ -21,7 +21,8 @@
   ],
   "start_url": "index.html",
   "background_color": "#000000",
-  "display": "standalone",
+  "display": "fullscreen",
+  "orientation": "portrait",
   "scope": "/",
-  "theme_color": "#000000",
+  "theme_color": "#000000"
 }
