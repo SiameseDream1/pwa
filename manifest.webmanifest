@@ -16,7 +16,7 @@
     {
       "src": "icons/maskable_icon.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "274x274"
     }
   ],
   "start_url": "index.html",
