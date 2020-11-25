@@ -17,11 +17,12 @@ self.addEventListener('install', (e) => {
   e.waitUntil(
     caches.open(cacheName).then((cache) => {
       console.log('[Service Worker] Caching all');
-      return cache.addAll(contentToCache);
+      return cache.addAll(appShellFiles);
     })
   );
 });
 self.addEventListener('fetch', (e) => {
+  var cacheName = "pwa-v1";
   e.respondWith(
     caches.match(e.request).then((r) => {
           console.log('[Service Worker] Fetching resource: '+e.request.url);
@@ -32,6 +33,18 @@ self.addEventListener('fetch', (e) => {
           return response;
         });
       });
+    })
+  );
+});
+self.addEventListener('activate', (e) => {
+  var cacheName = "pwa-v1";
+  e.waitUntil(
+    caches.keys().then((keyList) => {
+          return Promise.all(keyList.map((key) => {
+        if(key !== cacheName) {
+          return caches.delete(key);
+        }
+      }));
     })
   );
 });
